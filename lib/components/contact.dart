@@ -1,27 +1,27 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
-
-import '../localizations/loc.dart' as loc;
+import 'package:eetu_portfolio/localizations/s.dart';
 
 class Contact extends StatelessComponent {
   @override
   Component build(BuildContext context) {
+    final s = S.of(context);
     return section(id: 'contact', classes: 'reveal space-y-8', [
-      h2(classes: 'text-3xl font-bold neon-text text-right', [Component.text(loc.tr(context, 'contact_title'))]),
+      h2(classes: 'text-3xl font-bold neon-text text-right', [Component.text(s.contactTitle)]),
       div(classes: 'glass-card p-8 rounded-2xl space-y-6', [
         _contactItem(
           iconClass: 'fas fa-envelope',
-          label: loc.tr(context, 'contact_email'),
+          label: s.contactEmail,
           value: 'eetukallioniemi96@gmail.com',
         ),
         _contactItem(
           iconClass: 'fas fa-phone',
-          label: loc.tr(context, 'contact_phone'),
+          label: s.contactPhone,
           value: '+358 45 6100886',
         ),
         _contactItem(
           iconClass: 'fas fa-map-marker-alt',
-          label: loc.tr(context, 'contact_location'),
+          label: s.contactLocation,
           value: 'Naulatie 18, Orivesi',
         ),
       ]),

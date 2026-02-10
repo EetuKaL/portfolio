@@ -1,11 +1,11 @@
+import 'package:eetu_portfolio/localizations/s.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
-
-import '../localizations/loc.dart' as loc;
 
 class Skills extends StatelessComponent {
   @override
   Component build(BuildContext context) {
+    final s = S.of(context);
     const skills = [
       ('Flutter', 'fab fa-flutter'),
       ('React', 'fab fa-react'),
@@ -18,7 +18,7 @@ class Skills extends StatelessComponent {
     ];
 
     return section(id: 'skills', classes: 'reveal', [
-      h2(classes: 'text-3xl font-bold text-center mb-16 neon-text', [Component.text(loc.tr(context, 'skills_title'))]),
+      h2(classes: 'text-3xl font-bold text-center mb-16 neon-text', [Component.text(s.skillsTitle)]),
       div(classes: 'grid grid-cols-2 md:grid-cols-4 gap-6', [
         for (var skill in skills)
           div(classes: 'glass-card p-8 rounded-2xl text-center group hover:neon-border', [
