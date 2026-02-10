@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eetu Kallioniemi | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syncopate:wght@400;700&display=swap');
+
+        :root {
+            --neon-cyan: #00f2ff;
+            --neon-purple: #bc13fe;
+            --dark-bg: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, .font-tech {
+            font-family: 'Syncopate', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Taustan hiukkasanimaatio */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            filter: blur(1px);
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
+            transform: translateY(-5px) scale(1.01);
+        }
+
+        .neon-text {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .neon-border {
+            border: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+
+        .glitch::before {
+            color: var(--neon-cyan);
+            z-index: -1;
+            animation: glitch-anim 3s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            color: var(--neon-purple);
+            z-index: -2;
+            animation: glitch-anim 2s infinite linear alternate;
+        }
+
+        @keyframes glitch-anim {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Kustomoidut vierityspalkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--neon-cyan);
+        }
+
+        .badge {
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--neon-cyan);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigointi -->
+    <nav class="fixed top-0 w-full z-50 py-6 px-8 flex justify-between items-center backdrop-blur-md bg-black/20">
+        <div class="text-xl font-bold font-tech tracking-tighter neon-text">
+            EETU.EXE
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-tech">
+            <a href="#about" class="nav-link">Tietoja</a>
+            <a href="#skills" class="nav-link">Teknologia</a>
+            <a href="#experience" class="nav-link">Kokemus</a>
+            <a href="#contact" class="nav-link">Yhteys</a>
+        </div>
+        <div class="flex space-x-4">
+            <a href="https://github.com/Eetukal./td" target="_blank" class="hover:text-cyan-400 transition-colors"><i class="fab fa-github text-xl"></i></a>
+            <a href="https://www.linkedin.com/in/eetu-kkallioniemi-87248b2lb" target="_blank" class="hover:text-cyan-400 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex flex-col justify-center items-center relative px-4 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-900/5 to-transparent"></div>
+        <div class="text-center z-10">
+            <h2 class="text-cyan-400 font-tech tracking-[0.3em] mb-4 opacity-70 animate-pulse">SYSTEM_ONLINE</h2>
+            <h1 class="text-5xl md:text-8xl font-black glitch mb-6 tracking-tighter" data-text="EETU KALLIONIEMI">
+                EETU KALLIONIEMI
+            </h1>
+            <p class="text-xl md:text-2xl font-light tracking-widest text-gray-400 mb-10 max-w-2xl mx-auto uppercase">
+                Software Developer <span class="text-cyan-400 mx-2">//</span> Flutter Specialist
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#about" class="px-8 py-3 bg-cyan-500/10 border border-cyan-500/50 hover:bg-cyan-500/20 text-cyan-400 transition-all font-tech tracking-wider uppercase text-sm">
+                    Käynnistä Protokolla
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 animate-bounce">
+            <i class="fas fa-chevron-down text-cyan-500/50"></i>
+        </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-6 py-20 space-y-32">
+        
+        <!-- About Section -->
+        <section id="about" class="reveal grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold neon-text">Kuka olen?</h2>
+                <p class="text-gray-300 leading-relaxed text-lg">
+                    Olen Orivedeltä kotoisin oleva <span class="text-cyan-300">Flutter-painotteinen</span> ohjelmistokehittäjä. Tulen moniammatillisesta taustasta, mikä on antanut minulle poikkeuksellisen vahvan työmoraalin ja käytännönläheisen asenteen.
+                </p>
+                <p class="text-gray-400">
+                    Erikoistun skaalautuvien ja modernien sovellusten rakentamiseen. Aikaisemmat työnantajani ovat opettaneet minulle arkkitehtuurin merkityksen: kirjoitan koodia, joka on helppo ymmärtää ja ylläpitää.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-4">
+                    <div class="p-4 glass-card rounded-lg">
+                        <div class="text-cyan-400 text-2xl font-bold mb-1">3+</div>
+                        <div class="text-xs uppercase text-gray-500">Vuotta kokemusta</div>
+                    </div>
+                    <div class="p-4 glass-card rounded-lg">
+                        <div class="text-purple-400 text-2xl font-bold mb-1">100%</div>
+                        <div class="text-xs uppercase text-gray-500">Motivaatio</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
+                        <i class="fas fa-microchip text-4xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <span class="w-8 h-px bg-cyan-500 mr-3"></span> Attributes
+                    </h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-3 text-cyan-500"></i>
+                            <span><strong>Käytännönläheinen:</strong> Oppiminen tekemällä ja virheistä.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-3 text-cyan-500"></i>
+                            <span><strong>Nöyrä:</strong> Hyväksyn palautteen ja myönnän virheeni.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle mt-1 mr-3 text-cyan-500"></i>
+                            <span><strong>Motivoitunut:</strong> Tiedän olevani oikealla alalla.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="reveal">
+            <h2 class="text-3xl font-bold text-center mb-16 neon-text">Teknologia-pino</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="glass-card p-8 rounded-2xl text-center group hover:neon-border">
+                    <i class="fab fa-flutter text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">Flutter</h4>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group hover:neon-border">
+                    <i class="fab fa-react text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">React</h4>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group hover:neon-border">
+                    <i class="fab fa-aws text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">AWS</h4>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group hover:neon-border">
+                    <i class="fas fa-fire text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">Firebase</h4>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group hover:neon-border">
+                    <i class="fab fa-figma text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">Figma</h4>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group hover:neon-border">
+                    <i class="fas fa-code text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">Golang</h4>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group hover:neon-border">
+                    <i class="fas fa-server text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">Serverless</h4>
+                </div>
+                <div class="glass-card p-8 rounded-2xl text-center group hover:neon-border">
+                    <i class="fas fa-infinity text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h4 class="font-bold">CI/CD</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="reveal">
+            <h2 class="text-3xl font-bold mb-12 neon-text text-center">Työhistoria</h2>
+            <div class="space-y-8">
+                <!-- Aprikoodi -->
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-l-cyan-500">
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Aprikoodi Oy</h3>
+                            <p class="text-cyan-400 font-tech text-sm uppercase">Software Developer</p>
+                        </div>
+                        <div class="text-gray-500 font-tech text-sm mt-2 md:mt-0">
+                            04/2024 — 12/2025
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-cyan-500 mr-2">/</span> Kehitin itsenäisesti 100% etänä käyttäen moderneja teknologioita kuten Flutter, AWS, Firebase ja Golang.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cyan-500 mr-2">/</span> UI/UX suunnittelu Figmalla hyödyntäen Material 3 -periaatteita.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-cyan-500 mr-2">/</span> Koodin laatu varmistettiin tarkkojen vertaisarviointien (peer review) kautta.
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge">Flutter</span>
+                        <span class="badge">Golang</span>
+                        <span class="badge">Firebase</span>
+                        <span class="badge">Figma</span>
+                    </div>
+                </div>
+
+                <!-- Amabit -->
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-l-purple-500">
+                    <div class="flex flex-wrap justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Amabit Oy</h3>
+                            <p class="text-purple-400 font-tech text-sm uppercase">Software Developer</p>
+                        </div>
+                        <div class="text-gray-500 font-tech text-sm mt-2 md:mt-0">
+                            06/2022 — 11/2022
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-300 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">/</span> Backend-infrastruktuurin kehitys AWS Serverless -palveluilla (API Gateway, Lambda, Cognito, S3).
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">/</span> Käyttöliittymien kehitys Flutterilla ja Reactilla.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">/</span> Työskentely Scrum-mallin mukaisesti.
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge">AWS Lambda</span>
+                        <span class="badge">React</span>
+                        <span class="badge">Flutter</span>
+                        <span class="badge">Serverless</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Contact -->
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Education -->
+            <section id="education" class="reveal space-y-8">
+                <h2 class="text-3xl font-bold neon-text">Koulutus</h2>
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="text-cyan-400 text-xs font-tech mb-2">2023 — 2024</div>
+                        <h4 class="font-bold">Fullstack-Developer</h4>
+                        <p class="text-sm text-gray-400">Ideal Learning Oy</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="text-cyan-400 text-xs font-tech mb-2">2021 — 2022</div>
+                        <h4 class="font-bold">ICT-Asentaja (Ohjelmistokehittäjä)</h4>
+                        <p class="text-sm text-gray-400">Tampere Vocational College (Tredu)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="reveal space-y-8">
+                <h2 class="text-3xl font-bold neon-text text-right">Ota yhteyttä</h2>
+                <div class="glass-card p-8 rounded-2xl space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full neon-border flex items-center justify-center text-cyan-400">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 uppercase font-tech">Sähköposti</div>
+                            <div class="text-lg">eetukallioniemi96@gmail.com</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full neon-border flex items-center justify-center text-cyan-400">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 uppercase font-tech">Puhelin / 24/7</div>
+                            <div class="text-lg">+358 45 6100886</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full neon-border flex items-center justify-center text-cyan-400">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500 uppercase font-tech">Sijainti</div>
+                            <div class="text-lg">Naulatie 18, Orivesi</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-20 text-center border-t border-white/5 bg-black/40">
+        <div class="text-sm text-gray-600 font-tech tracking-widest uppercase">
+            Designed for the future // &copy; 2026 Eetu Kallioniemi
+        </div>
+    </footer>
+
+    <script>
+        // Tausta-animaatio
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.color = Math.random() > 0.5 ? '#00f2ff' : '#bc13fe';
+                this.opacity = Math.random() * 0.5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        // Scroll Reveal
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        window.onload = () => {
+            reveal();
+        };
+
+        // Smooth scroll for nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
