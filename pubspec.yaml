@@ -10,6 +10,8 @@ jaspr:
 
 dependencies:
   jaspr: ^0.22.0
+  jaspr_localizations: ^1.0.0+beta.4
+  
 
 dev_dependencies:
   build_runner: ^2.4.10
