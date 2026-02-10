@@ -26,6 +26,7 @@ class Hero extends StatelessComponent {
         div(classes: 'flex flex-wrap justify-center gap-4', [
           a(
             href: '#about',
+            attributes: {'data-scroll-target': '#about'},
             classes:
                 'px-8 py-3 bg-cyan-500/10 border border-cyan-500/50 hover:bg-cyan-500/20 text-cyan-400 transition-all font-tech tracking-wider uppercase text-sm',
             [Component.text(loc.tr(context, 'hero_cta'))],

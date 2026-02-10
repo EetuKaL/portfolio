@@ -12,7 +12,7 @@ class Skills extends StatelessComponent {
       ('AWS', 'fab fa-aws'),
       ('Firebase', 'fas fa-fire'),
       ('Figma', 'fab fa-figma'),
-      ('Golang', 'fas fa-code'),
+      ('Golang', 'fab fa-golang'),
       ('Serverless', 'fas fa-server'),
       ('CI/CD', 'fas fa-infinity'),
     ];

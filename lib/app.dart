@@ -25,8 +25,8 @@ class App extends StatelessComponent {
         children: [
           Component.element(tag: 'meta', attributes: {'charset': 'utf-8'}),
           script(src: 'https://cdn.tailwindcss.com'),
-          link(rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'),
-          link(rel: 'stylesheet', href: '/styles.css'),
+          link(rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css'),
+          link(rel: 'stylesheet', href: 'styles.css'),
         ],
       ),
       div([
@@ -44,7 +44,7 @@ class App extends StatelessComponent {
           ]),
         ]),
         Footer(),
-        script(src: '/app.js'),
+        script(src: 'app.js'),
       ]),
     ]);
   }

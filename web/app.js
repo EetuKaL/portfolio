@@ -61,11 +61,40 @@ function reveal() {
 window.addEventListener('scroll', reveal);
 window.addEventListener('load', reveal);
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+const smoothScrollTo = (targetTop, duration = 600) => {
+  const startTop = window.pageYOffset;
+  const distance = targetTop - startTop;
+
+  if (Math.abs(distance) < 1) {
+    window.scrollTo(0, targetTop);
+    return;
+  }
+
+  let startTime;
+  const step = timestamp => {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    const eased = 0.5 - Math.cos(progress * Math.PI) / 2;
+    window.scrollTo(0, startTop + distance * eased);
+    if (progress < 1) requestAnimationFrame(step);
+  };
+
+  requestAnimationFrame(step);
+};
+
+document.querySelectorAll('a[href^="#"], [data-scroll-target]').forEach(trigger => {
+  trigger.addEventListener('click', function (e) {
+    const targetSelector = this.getAttribute('data-scroll-target') || this.getAttribute('href');
+    if (!targetSelector || !targetSelector.startsWith('#')) return;
+
     e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
+    const target = document.querySelector(targetSelector);
+    if (!target) return;
+
+    const nav = document.querySelector('nav');
+    const headerOffset = nav ? nav.offsetHeight + 12 : 0;
+    const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+    smoothScrollTo(targetTop);
   });
 });

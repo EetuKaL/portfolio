@@ -13,7 +13,11 @@ class Nav extends StatelessComponent {
           href: '#top',
           classes:
               'text-xl font-bold font-tech tracking-tighter neon-text px-3 py-2 rounded-md border border-cyan-500/40 hover:bg-cyan-500/10 transition-colors',
-          attributes: {'role': 'button', 'aria-label': loc.tr(context, 'aria_top')},
+          attributes: {
+            'role': 'button',
+            'aria-label': loc.tr(context, 'aria_top'),
+            'data-scroll-target': '#top',
+          },
           [Component.text('EETU.EXE')],
         ),
         div(classes: 'hidden md:flex space-x-8 text-sm uppercase tracking-widest font-tech', [
@@ -24,13 +28,13 @@ class Nav extends StatelessComponent {
         ]),
         div(classes: 'flex space-x-4', [
           a(
-            href: 'https://github.com/Eetukal./td',
+            href: 'https://github.com/EetuKaL',
             target: Target.blank,
             classes: 'hover:text-cyan-400 transition-colors',
             [i(classes: 'fab fa-github text-xl', [])],
           ),
           a(
-            href: 'https://www.linkedin.com/in/eetu-kkallioniemi-87248b2lb',
+            href: 'https://www.linkedin.com/in/eetu-kallioniemi-87248b21b',
             target: Target.blank,
             classes: 'hover:text-cyan-400 transition-colors',
             [i(classes: 'fab fa-linkedin text-xl', [])],
