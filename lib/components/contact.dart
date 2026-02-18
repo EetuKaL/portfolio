@@ -8,7 +8,7 @@ class Contact extends StatelessComponent {
     final s = S.of(context)!;
     return section(id: 'contact', classes: 'reveal space-y-8', [
       h2(
-          classes: 'text-3xl font-bold neon-text text-right',
+          classes: 'text-3xl font-bold neon-text text-left md:text-right',
           [Component.text(s.contact_title)]),
       div(classes: 'glass-card p-8 rounded-2xl space-y-6', [
         _contactItem(

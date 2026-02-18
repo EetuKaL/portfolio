@@ -10,7 +10,7 @@ class Experience extends StatelessComponent {
     final s = S.of(context)!;
     return section(id: 'experience', classes: 'reveal', [
       h2(
-        classes: 'text-3xl font-bold mb-12 neon-text text-center',
+        classes: 'text-3xl font-bold mb-12 neon-text  text-left md:text-center',
         [Component.text(s.experience_title)],
       ),
       div(classes: 'space-y-8', [

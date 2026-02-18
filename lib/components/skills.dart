@@ -19,9 +19,10 @@ class Skills extends StatelessComponent {
 
     return section(id: 'skills', classes: 'reveal', [
       h2(
-          classes: 'text-3xl font-bold text-center mb-16 neon-text',
+          classes:
+              'text-3xl font-bold mb-16 neon-text text-left md:text-center',
           [Component.text(s.skills_title)]),
-      div(classes: 'grid grid-cols-2 md:grid-cols-4 gap-6', [
+      div(classes: 'grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-4 md:gap-6', [
         for (var skill in skills)
           div(
               classes:
