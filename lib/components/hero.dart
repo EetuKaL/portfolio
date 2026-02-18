@@ -15,7 +15,7 @@ class Hero extends StatelessComponent {
                   'absolute inset-0 bg-gradient-to-b from-transparent via-cyan-900/5 to-transparent',
               []),
           div(classes: 'text-center z-10', [
-            h2(
+            h3(
               classes:
                   'text-cyan-400 font-tech tracking-[0.3em] mb-4 opacity-70 animate-pulse',
               [Component.text(s.hero_system)],

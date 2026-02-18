@@ -60,16 +60,19 @@ class App extends StatelessComponent {
               Component.element(tag: 'div', id: 'top'),
               Component.element(tag: 'canvas', id: 'bg-canvas'),
               Nav(),
-              div(classes: 'max-w-6xl mx-auto px-6 py-20 space-y-32', [
-                Hero(),
-                About(),
-                Skills(),
-                Experience(),
-                div(classes: 'grid md:grid-cols-2 gap-12', [
-                  Education(),
-                  Contact(),
-                ]),
-              ]),
+              div(
+                  classes:
+                      'max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-2 sm:px-4 md:px-6 py-10 sm:py-16 md:py-20 space-y-16 md:space-y-24 lg:space-y-32',
+                  [
+                    Hero(),
+                    About(),
+                    Skills(),
+                    Experience(),
+                    div(classes: 'grid md:grid-cols-2 gap-12', [
+                      Education(),
+                      Contact(),
+                    ]),
+                  ]),
               Footer(),
               script(src: 'app.js'),
             ]),
