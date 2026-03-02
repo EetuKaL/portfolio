@@ -1,11 +1,12 @@
+import 'package:eetu_portfolio/state/detail_dialog/detail_dialog_listener.dart';
 import 'package:jaspr/jaspr.dart';
 
 class DetailDialogProvider extends InheritedComponent {
-  final bool showDialog;
-  final Function(String) openDialog;
+  final bool open;
+  final Function(DialogData) openDialog;
   final Function() closeDialog;
   const DetailDialogProvider({
-    required this.showDialog,
+    required this.open,
     required this.openDialog,
     required this.closeDialog,
     required Component child,
@@ -19,6 +20,6 @@ class DetailDialogProvider extends InheritedComponent {
 
   @override
   bool updateShouldNotify(DetailDialogProvider oldWidget) {
-    return oldWidget.showDialog != showDialog;
+    return oldWidget.open != open;
   }
 }

@@ -336,6 +336,104 @@ abstract class S {
   String get aria_top;
 
 
+  /// No description provided for react_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'React is the first web application framework I learned web development with. It was the first time I became familiar with state management, lifecycles and their hooks, asynchronous programming, as well as HTML and CSS. I have used React in vocational school and on the Ideal Learning course.'**
+  String get react_desc;
+
+
+  /// No description provided for firebase_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'At Aprikoodi, I became familiar with Firebase Firestore and its stream events. It integrates seamlessly with Flutter. I also gained some experience configuring Firestore rules for authorization and planning the architecture of our database.'**
+  String get firebase_desc;
+
+
+  /// No description provided for aws_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'At Amabit, I worked in a backend development role entirely on the AWS platform. There, I got familiar with authentication, authorization, Lambda, API Gateway, S3, Secrets Manager, and more. Most backend services were deployed using CloudFormation YAML templates. Later, we also started adopting the Infrastructure as Code (IaC) approach, defining and configuring backend services through code. My experience at Amabit gave me a solid understanding of AWS.'**
+  String get aws_desc;
+
+
+  /// No description provided for figma_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Before joining Aprikoodi Oy, I had some experience with Figma, but the deepest learning came at work, where I got to design and visualize plans based on discussions. This made developing applications more efficient because everyone was on the same page. I also became initially familiar with the Material 3 design guidelines.'**
+  String get figma_desc;
+
+
+  /// No description provided for golang_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'At Aprikoodi Oy, I gained experience building backend applications with Golang. Golang is easy to read and highly efficient. I appreciated its idiomatic approach to writing code.'**
+  String get golang_desc;
+
+
+  /// No description provided for cicd_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'At Amabit, I worked on the release and development pipelines for our application. Exploring these pipelines was very exciting, as it inspired ideas on further automating and improving the environments of our applications. I believe that even moderately sized applications should have separate sandbox environments for development branches and proper release pipelines to ensure quality through automated testing.'**
+  String get cicd_desc;
+
+
+  /// No description provided for wordpress_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'At Amabit, I helped revamp their website, which was built with WordPress. This was my first hands-on experience with WordPress. At Aprikoodi, I also developed a small custom plugin for a WordPress site using React.'**
+  String get wordpress_desc;
+
+
+  /// No description provided for python_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Python is the language I started learning in school to understand programming logic. Later at Amabit, I also wrote Lambda functions using Python.'**
+  String get python_desc;
+
+
+  /// No description provided for csharp_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'In school, when learning Unity, scripts were written in C#. While much of this may have been forgotten, I still consider it worth mentioning.'**
+  String get csharp_desc;
+
+
+  /// No description provided for flutter_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Flutter – what an amazing application development framework. It fits almost any scenario: write one codebase and compile it for multiple platforms. I strongly believe it will be one of the strongest technologies in the future, and other frameworks will take inspiration from it. I first encountered Flutter during my internship at Amabit. I didn’t get to use it extensively there, but after joining Aprikoodi Oy, Flutter became my main tool for almost two years. My employer had extensive experience with Flutter and guided me toward good architectural patterns.'**
+  String get flutter_desc;
+
+
+  /// No description provided for projects.
+  ///
+  /// In en, this message translates to:
+  /// **'Projects'**
+  String get projects;
+
+
+  /// No description provided for projects_underwork.
+  ///
+  /// In en, this message translates to:
+  /// **'Project showcase is currently under construction. Check back soon for featured work.'**
+  String get projects_underwork;
+
+
+  /// No description provided for loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading'**
+  String get loading;
+
+
+  /// No description provided for compiling_project.
+  ///
+  /// In en, this message translates to:
+  /// **'COMPILING PROJECTS'**
+  String get compiling_project;
+
+
 }
 
 /// Delegate class for S localizations.
@@ -531,6 +629,62 @@ class _SEn extends S {
   String get aria_top => 'Back to top';
 
 
+  @override
+  String get react_desc => 'React is the first web application framework I learned web development with. It was the first time I became familiar with state management, lifecycles and their hooks, asynchronous programming, as well as HTML and CSS. I have used React in vocational school and on the Ideal Learning course.';
+
+
+  @override
+  String get firebase_desc => 'At Aprikoodi, I became familiar with Firebase Firestore and its stream events. It integrates seamlessly with Flutter. I also gained some experience configuring Firestore rules for authorization and planning the architecture of our database.';
+
+
+  @override
+  String get aws_desc => 'At Amabit, I worked in a backend development role entirely on the AWS platform. There, I got familiar with authentication, authorization, Lambda, API Gateway, S3, Secrets Manager, and more. Most backend services were deployed using CloudFormation YAML templates. Later, we also started adopting the Infrastructure as Code (IaC) approach, defining and configuring backend services through code. My experience at Amabit gave me a solid understanding of AWS.';
+
+
+  @override
+  String get figma_desc => 'Before joining Aprikoodi Oy, I had some experience with Figma, but the deepest learning came at work, where I got to design and visualize plans based on discussions. This made developing applications more efficient because everyone was on the same page. I also became initially familiar with the Material 3 design guidelines.';
+
+
+  @override
+  String get golang_desc => 'At Aprikoodi Oy, I gained experience building backend applications with Golang. Golang is easy to read and highly efficient. I appreciated its idiomatic approach to writing code.';
+
+
+  @override
+  String get cicd_desc => 'At Amabit, I worked on the release and development pipelines for our application. Exploring these pipelines was very exciting, as it inspired ideas on further automating and improving the environments of our applications. I believe that even moderately sized applications should have separate sandbox environments for development branches and proper release pipelines to ensure quality through automated testing.';
+
+
+  @override
+  String get wordpress_desc => 'At Amabit, I helped revamp their website, which was built with WordPress. This was my first hands-on experience with WordPress. At Aprikoodi, I also developed a small custom plugin for a WordPress site using React.';
+
+
+  @override
+  String get python_desc => 'Python is the language I started learning in school to understand programming logic. Later at Amabit, I also wrote Lambda functions using Python.';
+
+
+  @override
+  String get csharp_desc => 'In school, when learning Unity, scripts were written in C#. While much of this may have been forgotten, I still consider it worth mentioning.';
+
+
+  @override
+  String get flutter_desc => 'Flutter – what an amazing application development framework. It fits almost any scenario: write one codebase and compile it for multiple platforms. I strongly believe it will be one of the strongest technologies in the future, and other frameworks will take inspiration from it. I first encountered Flutter during my internship at Amabit. I didn’t get to use it extensively there, but after joining Aprikoodi Oy, Flutter became my main tool for almost two years. My employer had extensive experience with Flutter and guided me toward good architectural patterns.';
+
+
+  @override
+  String get projects => 'Projects';
+
+
+  @override
+  String get projects_underwork => 'Project showcase is currently under construction. Check back soon for featured work.';
+
+
+  @override
+  String get loading => 'Loading';
+
+
+  @override
+  String get compiling_project => 'COMPILING PROJECTS';
+
+
 }
 
 
@@ -671,7 +825,7 @@ class _SFi extends S {
 
 
   @override
-  String get edu1_title => 'Täyden pinon kehittäjä';
+  String get edu1_title => 'Fullstack kehittäjä';
 
 
   @override
@@ -700,6 +854,62 @@ class _SFi extends S {
 
   @override
   String get aria_top => 'Palaa sivun alkuun';
+
+
+  @override
+  String get react_desc => 'React on ensimmäinen web-sovellusympäristö, jonka parissa opiskelin web-kehitystä. Sieltä tuli ensimmäistä kertaa tutuksi tilanhallinta, lifecycle ja näiden hookit, asynkronisuus sekä tietysti HTML ja CSS. Reactia olen päässyt käyttämään ammattikoulussa ja Ideal Learningin kurssilla';
+
+
+  @override
+  String get firebase_desc => 'Aprikoodilla tutustuin Firebasen Firestoreen ja sen tarjoamiin Stream-eventteihin. Se sopii Flutterin kanssa kuin nenä päähän. Tämän myötä myös jonkin verran tuli Firestore-sääntöjen (rules) konfigurointia ja tietokannan arkkitehtuurin suunnittelua.';
+
+
+  @override
+  String get aws_desc => 'Amabitille päästyäni pääsin taustasovelluskehityksen rooliin, missä työskentelin täysin AWS-alustalla. Siellä tutustuin autentikointiin, authorisointiin, Lambdaan, API Gatewayhin, S3:een, Secrets Manageriin ym. Pääosin deployattiin backend-palveluja CloudFormation YAML-templaten avulla. Loppua kohden ruvettiin myös siirtymään IAC-käsitteeseen eli ohjelmointikielen avulla määrittelemään ja konfiguroimaan taustapalveluja. Amabitiltä sain hyvän tuntemuksen AWS:stä.';
+
+
+  @override
+  String get figma_desc => 'Jo ennen Aprikoodi Oy:lle työllistymistä olin jonkin verran tutustunut Figmaan, mutta syvimmän oppimisen opin töissä, missä pääsin suunnittelemaan ja visualisoimaan keskustelupohjalta olevia suunnitelmia. Näin oli mukava lähteä kehittämään sovellusta, kun tiesi, että kaikki ovat samalla kartalla. Material 3 -designohjeet tulivat alustavasti myös tutuiksi.';
+
+
+  @override
+  String get golang_desc => 'Aprikoodi Oy:llä tuli kokemusta taustasovellusten rakentamisesta Golangilla. Golang on helppolukuinen ja tehokas ohjelmointikieli. Ihastuin Golangin idiomaattiseen tapaan kirjoittaa koodia.';
+
+
+  @override
+  String get cicd_desc => 'Amabitillä pääsin tekemään julkaisu- ja kehitysputkia sovelluksellemme. Aluksi tutustuminen oli innostavaa, ja sain paljon ideoita, kuinka automatisoida ja kehittää sovellusten ympäristöjä edelleen. Mielestäni vähänkään suuremmalle sovellukselle kannattaa rakentaa omat hiekkalaatikot kehityshaaroille sekä julkaisuputki laadun varmistamiseksi testien avulla.';
+
+
+  @override
+  String get wordpress_desc => 'Pääsin Amabitillä uudistamaan heidän kotisivujaan, jotka toimivat WordPressillä. Tässä pääsin ensikosketukseen WordPressiin. Aprikoodilla kehitin myös pienen räätälöidyn lisäosan WordPress-sivulle käyttäen Reactia.';
+
+
+  @override
+  String get python_desc => 'Pythonilla lähdin aikoinaan koulussa opettelemaan ohjelmoinnin logiikkaa. Myöhemmin Amabitillä kirjoittelin myös Lambda-funktioita Pythonilla.';
+
+
+  @override
+  String get csharp_desc => 'Koulussa, kun Unityn käyttöä harjoiteltiin, skriptit kirjoitettiin C#:lla. Nämä ovat varmasti jo osittain unohtuneet, mutta mielestäni mainitsemisen arvoisia.';
+
+
+  @override
+  String get flutter_desc => 'Flutter – aivan mahtava sovelluskehitysympäristö, joka sopii lähes tilanteeseen kuin tilanteeseen. Yksi koodikanta riittää, ja sen voi kääntää eri alustoille. Uskon vahvasti, että Flutter tulee tulevaisuudessa olemaan yksi vahvimmista teknologioista, ja että muut ympäristöt ottavat siitä mallia. Flutteriin tutustuin ensimmäistä kertaa, kun pääsin Amabitille työharjoitteluun. Siellä en kuitenkaan päässyt käyttämään Flutteria laajemmin, mutta Aprikoodi Oy:lle työllistyttyäni Flutter oli päätyökaluni lähes kahden vuoden ajan. Työnantajani oli myös vuosia käyttänyt Flutteria ja osasi ohjata hyviin Flutterin rakennusmalleihin.';
+
+
+  @override
+  String get projects => 'Projektit';
+
+
+  @override
+  String get projects_underwork => 'Projektiesittely on parhaillaan työn alla. Tarkista pian uudelleen nähdäksesi esitellyt työt.';
+
+
+  @override
+  String get loading => 'Ladataan';
+
+
+  @override
+  String get compiling_project => 'KÄÄNNETÄÄN PROJEKTEJA';
 
 
 }

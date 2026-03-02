@@ -19,3 +19,6 @@ dev_dependencies:
   jaspr_cli: ^0.22.2
   lints: ^3.0.0
   build_web_compilers: ^4.4.6
+
+flutter: 
+  generate: true
