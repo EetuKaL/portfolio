@@ -14,7 +14,7 @@ class DetailDialog extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'relative w-[90vw] max-w-lg mx-4 dialog-enter', [
+    return div(classes: 'relative w-[90vw] max-w-2xl mx-4 dialog-enter', [
       // Outer glow border
       div(
         classes:
@@ -31,7 +31,7 @@ class DetailDialog extends StatelessComponent {
             classes:
                 'flex items-center justify-between px-6 py-4 border-b border-white/10 bg-cyan-500/5',
             [
-              h3(
+              h2(
                 classes: 'text-lg font-bold font-tech tracking-wider neon-text',
                 [Component.text(title)],
               ),
@@ -50,37 +50,17 @@ class DetailDialog extends StatelessComponent {
             ],
           ),
           // Content
-          div(classes: 'px-6 py-5', [
-            div(classes: 'flex items-center space-x-3', [
-              i(classes: 'fas fa-chevron-right text-cyan-400/60 text-xs', []),
-              p(classes: 'text-gray-300 leading-relaxed text-sm', [
+          div(classes: 'px-8 py-6', [
+            div(classes: 'flex items-start space-x-3', [
+              i(
+                classes: 'fas fa-chevron-right text-cyan-400/60 text-xs mt-1.5',
+                [],
+              ),
+              p(classes: 'text-gray-300 leading-relaxed text-base', [
                 Component.text(details),
               ]),
             ]),
           ]),
-          // Footer decoration
-          div(
-            classes:
-                'px-6 py-3 border-t border-white/5 flex items-center justify-between bg-cyan-500/[0.02]',
-            [
-              div(classes: 'flex items-center space-x-2', [
-                div(
-                  classes: 'w-2 h-2 rounded-full bg-cyan-400 animate-pulse',
-                  [],
-                ),
-                span(
-                  classes:
-                      'text-[10px] text-gray-500 font-tech tracking-widest uppercase',
-                  [Component.text('SYSTEM.ACTIVE')],
-                ),
-              ]),
-              div(classes: 'flex space-x-1', [
-                div(classes: 'w-1.5 h-1.5 rounded-full bg-cyan-400/40', []),
-                div(classes: 'w-1.5 h-1.5 rounded-full bg-purple-500/40', []),
-                div(classes: 'w-1.5 h-1.5 rounded-full bg-cyan-400/40', []),
-              ]),
-            ],
-          ),
         ],
       ),
     ]);

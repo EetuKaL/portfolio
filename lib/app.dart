@@ -1,6 +1,6 @@
 import 'package:eetu_portfolio/components/hero.dart';
-import 'package:eetu_portfolio/components/state/detail_dialog/detail_dialog_listener.dart';
-import 'package:eetu_portfolio/components/state/detail_dialog/detail_dialog_provider.dart';
+import 'package:eetu_portfolio/components/projects.dart';
+import 'package:eetu_portfolio/state/detail_dialog/detail_dialog_listener.dart';
 import 'package:eetu_portfolio/l10n/generated/s.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
@@ -36,31 +36,13 @@ class App extends StatelessComponent {
                   Hero(),
                   About(),
                   Skills(),
+                  Projects(),
                   Experience(),
                   div(classes: 'grid md:grid-cols-2 gap-12', [
                     Education(),
                     Contact(),
                   ]),
                 ],
-              ),
-              button(
-                styles: Styles(
-                  position: Position.fixed(
-                    left: Unit.percent(50),
-                    top: Unit.percent(50),
-                  ),
-                  backgroundColor: Colors.blue,
-                  color: Colors.white,
-                ),
-                onClick: () {
-                  final dDP = DetailDialogProvider.of(context);
-                  if (dDP.showDialog) {
-                    dDP.closeDialog();
-                    return;
-                  }
-                  dDP.openDialog('Some details');
-                },
-                [Component.text('Open Dialog')],
               ),
 
               Footer(),

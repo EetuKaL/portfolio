@@ -44,5 +44,19 @@
   "contact_phone": "Phone / 24/7",
   "contact_location": "Location",
   "footer_text": "Designed for the future // © 2026 Eetu Kallioniemi",
-  "aria_top": "Back to top"
+  "aria_top": "Back to top",
+  "react_desc":"React is the first web application framework I learned web development with. It was the first time I became familiar with state management, lifecycles and their hooks, asynchronous programming, as well as HTML and CSS. I have used React in vocational school and on the Ideal Learning course.",
+  "firebase_desc": "At Aprikoodi, I became familiar with Firebase Firestore and its stream events. It integrates seamlessly with Flutter. I also gained some experience configuring Firestore rules for authorization and planning the architecture of our database.",
+  "aws_desc": "At Amabit, I worked in a backend development role entirely on the AWS platform. There, I got familiar with authentication, authorization, Lambda, API Gateway, S3, Secrets Manager, and more. Most backend services were deployed using CloudFormation YAML templates. Later, we also started adopting the Infrastructure as Code (IaC) approach, defining and configuring backend services through code. My experience at Amabit gave me a solid understanding of AWS.",
+  "figma_desc": "Before joining Aprikoodi Oy, I had some experience with Figma, but the deepest learning came at work, where I got to design and visualize plans based on discussions. This made developing applications more efficient because everyone was on the same page. I also became initially familiar with the Material 3 design guidelines.",
+  "golang_desc": "At Aprikoodi Oy, I gained experience building backend applications with Golang. Golang is easy to read and highly efficient. I appreciated its idiomatic approach to writing code.",
+  "cicd_desc": "At Amabit, I worked on the release and development pipelines for our application. Exploring these pipelines was very exciting, as it inspired ideas on further automating and improving the environments of our applications. I believe that even moderately sized applications should have separate sandbox environments for development branches and proper release pipelines to ensure quality through automated testing.",
+  "wordpress_desc": "At Amabit, I helped revamp their website, which was built with WordPress. This was my first hands-on experience with WordPress. At Aprikoodi, I also developed a small custom plugin for a WordPress site using React.",
+  "python_desc": "Python is the language I started learning in school to understand programming logic. Later at Amabit, I also wrote Lambda functions using Python.",
+  "csharp_desc":"In school, when learning Unity, scripts were written in C#. While much of this may have been forgotten, I still consider it worth mentioning.",
+  "flutter_desc":"Flutter – what an amazing application development framework. It fits almost any scenario: write one codebase and compile it for multiple platforms. I strongly believe it will be one of the strongest technologies in the future, and other frameworks will take inspiration from it. I first encountered Flutter during my internship at Amabit. I didn’t get to use it extensively there, but after joining Aprikoodi Oy, Flutter became my main tool for almost two years. My employer had extensive experience with Flutter and guided me toward good architectural patterns.",
+  "projects": "Projects",
+  "projects_underwork": "Project showcase is currently under construction. Check back soon for featured work.",
+  "loading": "Loading",
+  "compiling_project": "COMPILING PROJECTS"
 }

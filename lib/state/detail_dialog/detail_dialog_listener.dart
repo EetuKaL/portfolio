@@ -1,7 +1,14 @@
-import 'package:eetu_portfolio/components/state/detail_dialog/detail_dialog.dart';
-import 'package:eetu_portfolio/components/state/detail_dialog/detail_dialog_provider.dart';
+import 'package:eetu_portfolio/state/detail_dialog/detail_dialog.dart';
+import 'package:eetu_portfolio/state/detail_dialog/detail_dialog_provider.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+
+class DialogData {
+  final String title;
+  final String details;
+
+  DialogData(this.title, this.details);
+}
 
 class DetailDialogListener extends StatefulComponent {
   final Component child;
@@ -13,11 +20,11 @@ class DetailDialogListener extends StatefulComponent {
 }
 
 class DetailDialogState extends State<DetailDialogListener> {
-  String? _showDetails;
+  DialogData? _showDetails;
 
-  void openDetailDialog(String details) {
+  void openDetailDialog(DialogData data) {
     setState(() {
-      _showDetails = details;
+      _showDetails = data;
     });
   }
 
@@ -30,7 +37,7 @@ class DetailDialogState extends State<DetailDialogListener> {
   @override
   Component build(BuildContext context) {
     return DetailDialogProvider(
-      showDialog: _showDetails != null,
+      open: _showDetails != null,
       openDialog: openDetailDialog,
       closeDialog: closeDetailDialog,
       child: div([
@@ -57,8 +64,8 @@ class DetailDialogState extends State<DetailDialogListener> {
             ),
             [
               DetailDialog(
-                title: 'Details',
-                details: _showDetails!,
+                title: _showDetails!.title,
+                details: _showDetails!.details,
                 onClose: closeDetailDialog,
               ),
             ],
