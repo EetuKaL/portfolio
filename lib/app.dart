@@ -5,6 +5,7 @@ import 'package:eetu_portfolio/l10n/generated/s.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr_localizations/jaspr_localizations.dart';
+import 'package:universal_web/web.dart' as web;
 import 'components/about.dart';
 import 'components/contact.dart';
 import 'components/education.dart';
@@ -18,7 +19,7 @@ class App extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return JasprLocalizations(
-      initialLocale: Locale('en'),
+      initialLocale: kIsWeb ? _getBrowserLocale() : const Locale('en'),
       supportedLocales: S.supportedLocales
           .map((locale) => Locale.fromLanguageTag(locale))
           .toList(),
@@ -52,4 +53,14 @@ class App extends StatelessComponent {
       },
     );
   }
+}
+
+Locale _getBrowserLocale() {
+  final supported = S.supportedLocales.toSet();
+  final browserLang = web.window.navigator.language;
+  final lang = browserLang.split('-').first.toLowerCase();
+  if (supported.contains(lang)) {
+    return Locale(lang);
+  }
+  return const Locale('en');
 }

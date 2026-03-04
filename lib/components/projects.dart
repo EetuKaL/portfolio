@@ -1,12 +1,14 @@
+import 'package:eetu_portfolio/l10n/generated/s.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 
 class Projects extends StatelessComponent {
   @override
   Component build(BuildContext context) {
+    final s = S.of(context)!;
     return section(id: 'projects', classes: 'reveal space-y-8', [
       h2(classes: 'text-3xl font-bold neon-text text-left md:text-center', [
-        Component.text('Projects'),
+        Component.text(s.projects),
       ]),
       div(
         classes:
@@ -23,12 +25,10 @@ class Projects extends StatelessComponent {
           div(classes: 'space-y-2', [
             h3(
               classes: 'text-xl font-bold font-tech tracking-wider neon-text',
-              [Component.text('LOADING...')],
+              [Component.text(s.loading)],
             ),
             p(classes: 'text-gray-500 text-sm max-w-md', [
-              Component.text(
-                'Project showcase is currently under construction. Check back soon for featured work.',
-              ),
+              Component.text(s.projects_underwork),
             ]),
           ]),
           div(classes: 'flex items-center space-x-2 pt-2', [
@@ -36,7 +36,7 @@ class Projects extends StatelessComponent {
             span(
               classes:
                   'text-[10px] text-gray-600 font-tech tracking-widest uppercase',
-              [Component.text('COMPILING PROJECTS')],
+              [Component.text(s.compiling_project)],
             ),
           ]),
         ],

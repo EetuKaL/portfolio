@@ -6,7 +6,7 @@ environment:
   sdk: ^3.10.0
 
 jaspr:
-  mode: server
+  mode: static
 
 dependencies:
   jaspr: ^0.22.0
