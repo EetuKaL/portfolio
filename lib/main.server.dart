@@ -10,8 +10,9 @@ void main() {
   Jaspr.initializeApp(options: defaultServerOptions);
   runApp(
     Document(
+      base: null,
       title: 'Eetu Kallioniemi',
-      styles: [css.import('./styles.css')],
+      styles: [css.import('styles.css')],
       meta: {'viewport': 'width=device-width, initial-scale=1.0'},
       head: [
         script(src: 'https://cdn.tailwindcss.com'),
@@ -20,7 +21,8 @@ void main() {
           href:
               'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css',
         ),
-        script(src: 'app.js'),
+        script(src: 'app.js', defer: true),
+        script(src: 'main.client.dart.js', defer: true),
       ],
       body: App(),
       lang: locale.languageCode,
