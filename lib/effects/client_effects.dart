@@ -165,8 +165,8 @@ class _ClientEffectsState extends State<ClientEffects> {
   void _setupSmoothScroll() {
     void smoothScrollTo(double targetTop, {int duration = 600}) {
       final startTop = web.window.scrollY;
-      final distance = targetTop - startTop;
-
+      var distance = targetTop - startTop;
+      distance -= 14; // Reduce scroll distance, otherwise navbar covers target
       if (distance.abs() < 1) {
         web.window.scrollTo(0.toJS, targetTop);
         return;
@@ -188,17 +188,13 @@ class _ClientEffectsState extends State<ClientEffects> {
       web.window.requestAnimationFrame(step.toJS);
     }
 
-    final triggers = web.document.querySelectorAll(
-      'a[href^="#"], [data-scroll-target]',
-    );
+    final triggers = web.document.querySelectorAll('a[href^="#"], [data-scroll-target]');
     for (var i = 0; i < triggers.length; i++) {
       final trigger = triggers.item(i)! as web.Element;
       trigger.addEventListener(
         'click',
         (web.Event e) {
-          final targetSelector =
-              trigger.getAttribute('data-scroll-target') ??
-              trigger.getAttribute('href');
+          final targetSelector = trigger.getAttribute('data-scroll-target') ?? trigger.getAttribute('href');
           if (targetSelector == null || !targetSelector.startsWith('#')) return;
 
           e.preventDefault();
@@ -206,13 +202,8 @@ class _ClientEffectsState extends State<ClientEffects> {
           if (target == null) return;
 
           final nav = web.document.querySelector('nav');
-          final headerOffset = nav != null
-              ? (nav as web.HTMLElement).offsetHeight + 12
-              : 0;
-          final targetTop =
-              target.getBoundingClientRect().top +
-              web.window.scrollY -
-              headerOffset;
+          final headerOffset = nav != null ? (nav as web.HTMLElement).offsetHeight + 12 : 0;
+          final targetTop = target.getBoundingClientRect().top + web.window.scrollY - headerOffset;
 
           smoothScrollTo(targetTop);
         }.toJS,
