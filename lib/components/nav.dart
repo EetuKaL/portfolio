@@ -13,7 +13,7 @@ class Nav extends StatelessComponent {
         a(
           href: '#top',
           classes:
-              'text-xl font-bold font-tech tracking-tighter neon-text px-3 py-2 rounded-md border border-cyan-500/40 hover:bg-cyan-500/10 transition-colors',
+              'text-xl font-bold font-tech tracking-tighter neon-text px-3 py-2 rounded-md border border-cyan-500/40',
           attributes: {
             'role': 'button',
             'aria-label': s.aria_top,
@@ -22,37 +22,34 @@ class Nav extends StatelessComponent {
           [Component.text('EETU.EXE')],
         ),
         div(
-            classes:
-                'hidden md:flex space-x-8 text-sm uppercase tracking-widest font-tech',
-            [
-              a(
-                  href: '#about',
-                  classes: 'nav-link',
-                  [Component.text(s.nav_about)]),
-              a(
-                  href: '#skills',
-                  classes: 'nav-link',
-                  [Component.text(s.nav_tools)]),
-              a(
-                  href: '#experience',
-                  classes: 'nav-link',
-                  [Component.text(s.nav_experience)]),
-              a(
-                  href: '#contact',
-                  classes: 'nav-link',
-                  [Component.text(s.nav_contact)]),
+          classes:
+              'hidden md:flex space-x-8 text-sm uppercase tracking-widest font-tech',
+          [
+            a(href: '#about', classes: 'nav-link', [
+              Component.text(s.nav_about),
             ]),
+            a(href: '#skills', classes: 'nav-link', [
+              Component.text(s.nav_tools),
+            ]),
+            a(href: '#experience', classes: 'nav-link', [
+              Component.text(s.nav_experience),
+            ]),
+            a(href: '#contact', classes: 'nav-link', [
+              Component.text(s.nav_contact),
+            ]),
+          ],
+        ),
         div(classes: 'flex space-x-4', [
           a(
             href: 'https://github.com/EetuKaL',
             target: Target.blank,
-            classes: 'hover:text-cyan-400 transition-colors',
+            classes: 'text-cyan-400',
             [i(classes: 'fab fa-github text-xl', [])],
           ),
           a(
             href: 'https://www.linkedin.com/in/eetu-kallioniemi-87248b21b',
             target: Target.blank,
-            classes: 'hover:text-cyan-400 transition-colors',
+            classes: 'text-cyan-400',
             [i(classes: 'fab fa-linkedin text-xl', [])],
           ),
         ]),

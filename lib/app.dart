@@ -1,6 +1,7 @@
 import 'package:eetu_portfolio/components/hero.dart';
 import 'package:eetu_portfolio/components/projects.dart';
-import 'package:eetu_portfolio/state/detail_dialog/detail_dialog_listener.dart';
+import 'package:eetu_portfolio/effects/client_effects.dart';
+import 'package:eetu_portfolio/components/detail_dialog_listener.dart';
 import 'package:eetu_portfolio/l10n/generated/s.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
@@ -24,30 +25,49 @@ class App extends StatelessComponent {
           .map((locale) => Locale.fromLanguageTag(locale))
           .toList(),
       builder: (context, locale) {
-        return DetailDialogListener(
-          child: Builder(
-            builder: (context) => div([
-              Component.element(tag: 'div', id: 'top'),
-              Component.element(tag: 'canvas', id: 'bg-canvas'),
-              Nav(),
-              div(
-                classes:
-                    'max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-2 sm:px-4 md:px-6 py-10 sm:py-16 md:py-20 space-y-16 md:space-y-24 lg:space-y-32',
-                [
-                  Hero(),
-                  About(),
-                  Skills(),
-                  Projects(),
-                  Experience(),
-                  div(classes: 'grid md:grid-cols-2 gap-12', [
-                    Education(),
-                    Contact(),
-                  ]),
-                ],
-              ),
+        return ClientEffects(
+          child: DetailDialogListener(
+            child: Builder(
+              builder: (context) => div([
+                Component.element(tag: 'div', id: 'top'),
+                Component.element(tag: 'canvas', id: 'bg-canvas'),
+                Nav(),
+                div(
+                  classes:
+                      'max-w-full sm:max-w-2xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-2 sm:px-4 md:px-6 py-10 sm:py-16 md:py-20 space-y-16 md:space-y-24 lg:space-y-32',
+                  [
+                    Hero(),
+                    About(),
+                    Skills(),
+                    Projects(),
+                    Experience(),
+                    div(
+                      classes:
+                          'flex flex-col md:flex-row md:justify-between gap-8 md:gap-24 w-full',
+                      [Education(), Contact()],
+                    ),
+                  ],
+                ),
+                div(
+                  classes:
+                      'fixed bottom-4 right-4 bg-cyan-500 rounded-full animate-[pulse_4s_ease-in-out_infinite] duration-1000 p-4',
+                  [
+                    i(
+                      classes:
+                          'fas fa-phone text-3xl text-cyan-400, cursor-pointer',
+                      [],
+                      events: {
+                        'click': (_) {
+                          web.window.open('tel:+358456100886', '_self');
+                        },
+                      },
+                    ),
+                  ],
+                ),
 
-              Footer(),
-            ]),
+                Footer(),
+              ]),
+            ),
           ),
         );
       },

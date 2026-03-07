@@ -1,6 +1,6 @@
 import 'package:eetu_portfolio/l10n/generated/s.dart';
-import 'package:eetu_portfolio/state/detail_dialog/detail_dialog_listener.dart';
-import 'package:eetu_portfolio/state/detail_dialog/detail_dialog_provider.dart';
+import 'package:eetu_portfolio/components/detail_dialog_listener.dart';
+import 'package:eetu_portfolio/state/detail_dialog_provider.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 
@@ -22,11 +22,10 @@ class Skills extends StatelessComponent {
       ('C#', 'fas fa-code', s.csharp_desc),
     ];
 
-    return section(id: 'skills', classes: 'reveal', [
-      h2(
-        classes: 'text-3xl font-bold mb-16 neon-text text-left md:text-center',
-        [Component.text(s.skills_title)],
-      ),
+    return section(id: 'skills', classes: 'reveal space-y-4 md:space-y-8', [
+      h2(classes: 'text-3xl font-bold neon-text text-left md:text-center', [
+        Component.text(s.skills_title),
+      ]),
       div(classes: 'grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-4 md:gap-6', [
         for (var skill in skills)
           div(
@@ -37,14 +36,9 @@ class Skills extends StatelessComponent {
                       ddp.openDialog(DialogData(skill.$1, skill.$3));
                     },
                   },
-            classes:
-                'glass-card p-8 rounded-2xl text-center group hover:neon-border',
+            classes: 'glass-card p-8 rounded-2xl text-center cursor-pointer',
             [
-              i(
-                classes:
-                    '${skill.$2} text-4xl mb-4 group-hover:scale-110 transition-transform',
-                [],
-              ),
+              i(classes: '${skill.$2} text-4xl mb-4', []),
               h4(classes: 'font-bold', [Component.text(skill.$1)]),
             ],
           ),

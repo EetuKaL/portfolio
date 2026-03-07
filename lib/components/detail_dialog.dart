@@ -24,12 +24,12 @@ class DetailDialog extends StatelessComponent {
       // Card body
       div(
         classes:
-            'relative rounded-2xl border border-white/10 overflow-hidden bg-[#0a0a0f]',
+            ' max-h-[90vh] overflow-scroll no-scrollbar relative rounded-2xl border border-white/10 overflow-hidden bg-[#0a0a0f]',
         [
           // Header bar
           div(
             classes:
-                'flex items-center justify-between px-6 py-4 border-b border-white/10 bg-cyan-500/5',
+                'sticky top-0 flex items-center justify-between px-6 py-4 border-b border-white/10 bg-cyan-900',
             [
               h2(
                 classes: 'text-lg font-bold font-tech tracking-wider neon-text',
@@ -37,15 +37,9 @@ class DetailDialog extends StatelessComponent {
               ),
               button(
                 classes:
-                    'w-8 h-8 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-200 cursor-pointer group',
+                    'w-8 h-8 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 cursor-pointer',
                 onClick: onClose,
-                [
-                  i(
-                    classes:
-                        'fas fa-xmark text-gray-400 group-hover:text-cyan-400 transition-colors',
-                    [],
-                  ),
-                ],
+                [i(classes: 'fas fa-xmark text-gray-400', [])],
               ),
             ],
           ),

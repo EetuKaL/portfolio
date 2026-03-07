@@ -6,7 +6,7 @@ class Projects extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     final s = S.of(context)!;
-    return section(id: 'projects', classes: 'reveal space-y-8', [
+    return section(id: 'projects', classes: 'reveal space-y-4 md:space-y-8', [
       h2(classes: 'text-3xl font-bold neon-text text-left md:text-center', [
         Component.text(s.projects),
       ]),
@@ -23,21 +23,12 @@ class Projects extends StatelessComponent {
             ),
           ]),
           div(classes: 'space-y-2', [
-            h3(
-              classes: 'text-xl font-bold font-tech tracking-wider neon-text',
-              [Component.text(s.loading)],
-            ),
-            p(classes: 'text-gray-500 text-sm max-w-md', [
-              Component.text(s.projects_underwork),
+            h3(classes: 'text-gray-500 font-tech text-m uppercase', [
+              Component.text(s.underwork),
             ]),
-          ]),
-          div(classes: 'flex items-center space-x-2 pt-2', [
-            div(classes: 'w-2 h-2 rounded-full bg-cyan-400 animate-pulse', []),
-            span(
-              classes:
-                  'text-[10px] text-gray-600 font-tech tracking-widest uppercase',
-              [Component.text(s.compiling_project)],
-            ),
+            p(classes: 'text-gray-500 text-sm', [
+              Component.text(s.projects_underwork_desc),
+            ]),
           ]),
         ],
       ),

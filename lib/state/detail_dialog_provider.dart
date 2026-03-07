@@ -1,4 +1,4 @@
-import 'package:eetu_portfolio/state/detail_dialog/detail_dialog_listener.dart';
+import 'package:eetu_portfolio/components/detail_dialog_listener.dart';
 import 'package:jaspr/jaspr.dart';
 
 class DetailDialogProvider extends InheritedComponent {

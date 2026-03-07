@@ -1,7 +1,8 @@
-import 'package:eetu_portfolio/state/detail_dialog/detail_dialog.dart';
-import 'package:eetu_portfolio/state/detail_dialog/detail_dialog_provider.dart';
+import 'package:eetu_portfolio/components/detail_dialog.dart';
+import 'package:eetu_portfolio/state/detail_dialog_provider.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:universal_web/web.dart' as web;
 
 class DialogData {
   final String title;
@@ -16,22 +17,31 @@ class DetailDialogListener extends StatefulComponent {
   const DetailDialogListener({required this.child, super.key});
 
   @override
-  State<DetailDialogListener> createState() => DetailDialogState();
+  State<DetailDialogListener> createState() => _DetailDialogState();
 }
 
-class DetailDialogState extends State<DetailDialogListener> {
+class _DetailDialogState extends State<DetailDialogListener> {
   DialogData? _showDetails;
 
   void openDetailDialog(DialogData data) {
     setState(() {
       _showDetails = data;
     });
+    if (kIsWeb) {
+      (web.document.documentElement as web.HTMLElement?)?.style.overflow =
+          'hidden';
+      web.document.body?.style.overflow = 'hidden';
+    }
   }
 
   void closeDetailDialog() {
     setState(() {
       _showDetails = null;
     });
+    if (kIsWeb) {
+      (web.document.documentElement as web.HTMLElement?)?.style.overflow = '';
+      web.document.body?.style.overflow = '';
+    }
   }
 
   @override
@@ -40,7 +50,7 @@ class DetailDialogState extends State<DetailDialogListener> {
       open: _showDetails != null,
       openDialog: openDetailDialog,
       closeDialog: closeDetailDialog,
-      child: div([
+      child: div(classes: 'max-w-[100vw] overflow-x-hidden', [
         component.child,
         if (_showDetails != null)
           div(
@@ -73,4 +83,6 @@ class DetailDialogState extends State<DetailDialogListener> {
       ]),
     );
   }
+
+  static of(BuildContext context) {}
 }

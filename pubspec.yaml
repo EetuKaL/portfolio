@@ -9,6 +9,7 @@ jaspr:
   mode: static
 
 dependencies:
+  aws_lambda_dart_runtime_ns: ^1.0.1
   jaspr: ^0.22.0
   jaspr_localizations: ^1.0.0+beta.4
   

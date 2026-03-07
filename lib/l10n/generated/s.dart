@@ -87,7 +87,7 @@ abstract class S {
   /// No description provided for hero_system.
   ///
   /// In en, this message translates to:
-  /// **'SYSTEM_ONLINE'**
+  /// **'It’s all about attitude'**
   String get hero_system;
 
 
@@ -108,14 +108,14 @@ abstract class S {
   /// No description provided for hero_role_2.
   ///
   /// In en, this message translates to:
-  /// **' Flutter Specialist'**
+  /// **' Flutter Developer'**
   String get hero_role_2;
 
 
   /// No description provided for hero_cta.
   ///
   /// In en, this message translates to:
-  /// **'Initiate Protocol'**
+  /// **'Cut to the Chase'**
   String get hero_cta;
 
 
@@ -150,7 +150,7 @@ abstract class S {
   /// No description provided for about_p2.
   ///
   /// In en, this message translates to:
-  /// **'I specialize in building scalable, modern applications. Previous roles taught me the value of architecture: I write code that is easy to understand and maintain.'**
+  /// **'I learn every day. I build better than yesterday. Serious about the work — but never without a sense of humor.'**
   String get about_p2;
 
 
@@ -413,25 +413,25 @@ abstract class S {
   String get projects;
 
 
-  /// No description provided for projects_underwork.
+  /// No description provided for projects_underwork_desc.
   ///
   /// In en, this message translates to:
   /// **'Project showcase is currently under construction. Check back soon for featured work.'**
-  String get projects_underwork;
+  String get projects_underwork_desc;
 
 
-  /// No description provided for loading.
+  /// No description provided for underwork.
   ///
   /// In en, this message translates to:
-  /// **'Loading'**
-  String get loading;
+  /// **'Underwork'**
+  String get underwork;
 
 
-  /// No description provided for compiling_project.
+  /// No description provided for copied.
   ///
   /// In en, this message translates to:
-  /// **'COMPILING PROJECTS'**
-  String get compiling_project;
+  /// **'Copied'**
+  String get copied;
 
 
 }
@@ -486,7 +486,7 @@ class _SEn extends S {
 
 
   @override
-  String get hero_system => 'SYSTEM_ONLINE';
+  String get hero_system => 'It’s all about attitude';
 
 
   @override
@@ -498,11 +498,11 @@ class _SEn extends S {
 
 
   @override
-  String get hero_role_2 => ' Flutter Specialist';
+  String get hero_role_2 => ' Flutter Developer';
 
 
   @override
-  String get hero_cta => 'Initiate Protocol';
+  String get hero_cta => 'Cut to the Chase';
 
 
   @override
@@ -522,7 +522,7 @@ class _SEn extends S {
 
 
   @override
-  String get about_p2 => 'I specialize in building scalable, modern applications. Previous roles taught me the value of architecture: I write code that is easy to understand and maintain.';
+  String get about_p2 => 'I learn every day. I build better than yesterday. Serious about the work — but never without a sense of humor.';
 
 
   @override
@@ -674,15 +674,15 @@ class _SEn extends S {
 
 
   @override
-  String get projects_underwork => 'Project showcase is currently under construction. Check back soon for featured work.';
+  String get projects_underwork_desc => 'Project showcase is currently under construction. Check back soon for featured work.';
 
 
   @override
-  String get loading => 'Loading';
+  String get underwork => 'Underwork';
 
 
   @override
-  String get compiling_project => 'COMPILING PROJECTS';
+  String get copied => 'Copied';
 
 
 }
@@ -713,7 +713,7 @@ class _SFi extends S {
 
 
   @override
-  String get hero_system => 'JÄRJESTELMÄ_KÄYNNISSÄ';
+  String get hero_system => 'ASENNE_RATKAISEE';
 
 
   @override
@@ -725,15 +725,15 @@ class _SFi extends S {
 
 
   @override
-  String get hero_role_2 => ' Flutter-asiantuntija';
+  String get hero_role_2 => ' Flutter-kehittäjä';
 
 
   @override
-  String get hero_cta => 'Käynnistä Protokolla';
+  String get hero_cta => 'Eikun asiaan!';
 
 
   @override
-  String get about_title => 'Kuka olen minä?';
+  String get about_title => 'Kuka minä olen?';
 
 
   @override
@@ -749,7 +749,7 @@ class _SFi extends S {
 
 
   @override
-  String get about_p2 => 'Erikoistun skaalautuvien ja modernien sovellusten rakentamiseen. Aikaisemmat työnantajani ovat opettaneet minulle arkkitehtuurin merkityksen: kirjoitan koodia, joka on helppo ymmärtää ja ylläpitää.';
+  String get about_p2 => 'Opin joka päivä. Rakennan paremmin kuin eilen. Vakavasti – muttei vakavana';
 
 
   @override
@@ -805,7 +805,7 @@ class _SFi extends S {
 
 
   @override
-  String get exp1_task_3 => 'Koodin laatu varmistettiin tarkkojen vertaisarviointien kautta.';
+  String get exp1_task_3 => 'Koodin laatu varmistettiin tarkkojen katselmuksien kautta.';
 
 
   @override
@@ -901,15 +901,15 @@ class _SFi extends S {
 
 
   @override
-  String get projects_underwork => 'Projektiesittely on parhaillaan työn alla. Tarkista pian uudelleen nähdäksesi esitellyt työt.';
+  String get projects_underwork_desc => 'Projektiesittely on parhaillaan työn alla. Tarkista pian uudelleen nähdäksesi esitellyt työt.';
 
 
   @override
-  String get loading => 'Ladataan';
+  String get underwork => 'Työn alla';
 
 
   @override
-  String get compiling_project => 'KÄÄNNETÄÄN PROJEKTEJA';
+  String get copied => 'Kopioitu';
 
 
 }

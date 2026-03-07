@@ -32,11 +32,9 @@ class About extends StatelessComponent {
             classes:
                 'glass-card p-6 rounded-2xl relative overflow-hidden group',
             [
-              div(
-                classes:
-                    'absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity',
-                [i(classes: 'fas fa-microchip text-4xl text-cyan-400', [])],
-              ),
+              div(classes: 'absolute top-0 right-0 p-2 opacity-10', [
+                i(classes: 'fas fa-microchip text-4xl text-cyan-400', []),
+              ]),
               h3(classes: 'text-xl font-bold mb-4 flex items-center', [
                 span(classes: 'w-8 h-px bg-cyan-500 mr-3', []),
                 Component.text(s.attr_title),
@@ -63,18 +61,17 @@ class About extends StatelessComponent {
           div(classes: 'relative group flex justify-center h-full', [
             div(
               classes:
-                  'absolute -inset-1 rounded-2xl bg-gradient-to-br from-cyan-400 via-purple-500 to-cyan-400 opacity-50 blur-md group-hover:opacity-80 transition-opacity duration-500',
+                  'absolute -inset-1 rounded-2xl bg-gradient-to-br from-cyan-400 via-purple-500 to-cyan-400 opacity-50 blur-md',
               [],
             ),
             div(
               classes:
-                  'relative w-full h-full rounded-2xl overflow-hidden border-2 border-white/10 group-hover:border-cyan-400/50 transition-all duration-500',
+                  'relative w-full h-full rounded-2xl overflow-hidden border-2 border-white/10',
               [
                 img(
                   src: 'me.jpg',
                   alt: 'Eetu Kallioniemi',
-                  classes:
-                      'w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700',
+                  classes: 'w-full transition duration-150 h-full object-cover',
                 ),
               ],
             ),
