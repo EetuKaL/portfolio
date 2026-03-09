@@ -23,8 +23,15 @@ class Skills extends StatelessComponent {
     ];
 
     return section(id: 'skills', classes: 'reveal space-y-4 md:space-y-8', [
-      h2(classes: 'text-3xl font-bold neon-text text-left md:text-center', [
-        Component.text(s.skills_title),
+      div([
+        h2(classes: 'text-3xl font-bold neon-text text-left md:text-center', [
+          Component.text(s.skills_title),
+        ]),
+        p(
+          classes:
+              'text-gray-300 leading-relaxed text-md text-left md:text-center',
+          [Component.text(s.readMySkillsInstr)],
+        ),
       ]),
       div(classes: 'grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-4 md:gap-6', [
         for (var skill in skills)

@@ -28,7 +28,7 @@ class App extends StatelessComponent {
         return ClientEffects(
           child: DetailDialogListener(
             child: Builder(
-              builder: (context) => div([
+              builder: (context) => div(id: 'app', [
                 Component.element(tag: 'div', id: 'top'),
                 Component.element(tag: 'canvas', id: 'bg-canvas'),
                 Nav(),

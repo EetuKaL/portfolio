@@ -37,8 +37,10 @@ class DetailDialog extends StatelessComponent {
               ),
               button(
                 classes:
-                    'w-8 h-8 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 cursor-pointer',
-                onClick: onClose,
+                    'w-8 h-8 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 cursor-pointer hover:bg-white/10 transition-colors',
+                onClick: () {
+                  onClose();
+                },
                 [i(classes: 'fas fa-xmark text-gray-400', [])],
               ),
             ],

@@ -434,6 +434,13 @@ abstract class S {
   String get copied;
 
 
+  /// No description provided for readMySkillsInstr.
+  ///
+  /// In en, this message translates to:
+  /// **'Read my Skills by clicking a card'**
+  String get readMySkillsInstr;
+
+
 }
 
 /// Delegate class for S localizations.
@@ -685,6 +692,10 @@ class _SEn extends S {
   String get copied => 'Copied';
 
 
+  @override
+  String get readMySkillsInstr => 'Read my Skills by clicking a card';
+
+
 }
 
 
@@ -910,6 +921,10 @@ class _SFi extends S {
 
   @override
   String get copied => 'Kopioitu';
+
+
+  @override
+  String get readMySkillsInstr => 'Lue taidoistani painamalla korttia';
 
 
 }
