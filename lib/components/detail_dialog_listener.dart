@@ -30,7 +30,6 @@ class _DetailDialogState extends State<DetailDialogListener> {
     if (kIsWeb) {
       (web.document.documentElement as web.HTMLElement?)?.style.overflow =
           'hidden';
-      web.document.body?.style.overflow = 'hidden';
     }
   }
 
@@ -40,7 +39,6 @@ class _DetailDialogState extends State<DetailDialogListener> {
     });
     if (kIsWeb) {
       (web.document.documentElement as web.HTMLElement?)?.style.overflow = '';
-      web.document.body?.style.overflow = '';
     }
   }
 
@@ -83,6 +81,4 @@ class _DetailDialogState extends State<DetailDialogListener> {
       ]),
     );
   }
-
-  static of(BuildContext context) {}
 }

@@ -23,7 +23,7 @@ class ContactItem extends StatelessComponent {
     final feedbackText = S.of(context)!.copied;
     return div(
       classes:
-          'w-full flex items-center space-x-4 relative cursor-pointer ${classes ?? ''}',
+          'w-full flex items-center space-x-2 md:space-x-4 relative cursor-pointer ${classes ?? ''}',
       [
         div(
           events: {if (onIconClick != null) 'click': onIconClick!},
